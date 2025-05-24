@@ -75,7 +75,7 @@ def display_formatted_summary_v5(text_with_guillemets):
     st.markdown(final_html, unsafe_allow_html=True)
 
 # --- TEXTE DU RÉSUMÉ ---
-summary_text_updated = """Pour écrire ce résumé, je me suis aidé de l'IA NotebookLM pour synthétiser le rapport de la Société Générale. Le texte en gris désigne le texte généré par IA, le blanc le mien. Sur Word, en police 12, cette première partie fait environ 40 lignes.
+summary_text_updated = """Pour écrire ce résumé, je me suis aidé de l'IA NotebookLM pour synthétiser le rapport de la Société Générale. Le texte en gris désigne le texte généré par IA, en blanc, le mien. Sur Word, en police 12, cette première partie fait environ 40 lignes.
 
 Le document fourni pour cet exercice intitulé America First est issu du service de recherche Cross-Asset de la Société Générale, publié le 9 Décembre 2024. Son objectif principal est de fournir une stratégie et des perspectives pour le marché des actions américaines pour l'année 2025, en se focalisant sur le thème de l'America First et les impacts potentiels d'un nouveau gouvernement américain.  
 
