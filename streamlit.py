@@ -239,7 +239,7 @@ Le critère à maximiser est un ratio que j'ai crée:
 - 60% des performances sont basés sur le forecast (Upside/12-Month Put Implied Volatility)
 - 40% sont basés sur l'historique (1-Year Total Return/Volatility 360 Day)
 
-J'ai laissé l'IA me conseiller sur la librairie à utiliser et le code, ayant déjà fait une optimisation de portefeuille sur Excel mais pas sur Python. J'ai également rajouté les contraintes suivantes :
+J'ai laissé l'IA me conseiller sur la librairie à utiliser, et je l'ai laissé rédiger le code (ayant déjà fait une optimisation de portefeuille sur Excel mais pas sur Python). J'ai également rajouté les contraintes suivantes :
 
 - Aucun secteur ne doit dépasser 25% de concentration des titres
 - Les secteurs doivent avoir au minimum 2% de part dans le portefeuille
