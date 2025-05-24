@@ -1,0 +1,24 @@
+Equity;Weight;Sector (1);Score Optimisation (colonne mixte);Rendement Mixte en % (Reporting);Volatilite Mixte en % (Reporting)
+AI FP Equity;0.0200;Materials;0.3861;7.2605;18.4760
+IBE SM Equity;0.0200;Utilities;0.6852;11.7648;17.1700
+DTE GY Equity;0.0800;Communication Services;1.6153;30.3336;19.7800
+DB1 GY Equity;0.0800;Financials;1.1984;22.5945;20.0180
+LDO IM Equity;0.0800;Industrials;1.3142;50.3693;37.9420
+URW FP Equity;0.0200;Real Estate;0.3923;9.9778;25.3520
+BAMI IM Equity;0.0100;Financials;0.9103;27.5171;31.2420
+SAP GY Equity;0.0800;Information Technology;0.8566;23.0227;26.2220
+GTT FP Equity;0.0800;Energy;0.7258;17.9889;25.2240
+SAN FP Equity;0.0800;Health Care;0.8646;17.8872;20.5260
+ORA FP Equity;0.0800;Communication Services;0.9380;14.7921;15.8220
+ENR GY Equity;0.0800;Industrials;1.3314;73.5140;50.7120
+BN FP Equity;0.0300;Consumer Staples;0.7189;10.8937;16.1260
+PRX NA Equity;0.0200;Consumer Discretionary;0.6474;21.4680;33.1700
+HO FP Equity;0.0800;Industrials;0.7686;23.6478;30.0500
+ISP IM Equity;0.0800;Financials;0.9220;22.3076;23.9640
+GLE FP Equity;0.0800;Financials;1.0165;33.4018;31.1880
+
+Indicateurs Globaux du Portefeuille;
+Score d'Optimisation du Portefeuille (basé sur colonne 'mixte');0.9970
+Rendement Mixte en % du Portefeuille (Reporting);28.00
+Volatilite Mixte Ponderee du Portefeuille (Reporting en %);26.80
+Volatilite Annuelle du Portefeuille (calculee par l'optimiseur via S en %);8.09
