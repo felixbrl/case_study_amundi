@@ -3,6 +3,11 @@ import re
 import os
 import glob
 
+# Changement du répertoire de travail (spécifique à l'environnement de l'utilisateur)
+# Note: This line is kept as per user's previous versions, but it makes the script less portable.
+# For broader use, it's better to work with relative paths or make this configurable.
+# os.chdir(r"D:\Téléchargements\Privé_ Exercices pour l'entretien du Stage Assistant Gestion Multi Asset")
+
 # --- CONFIGURATION DES STYLES ---
 STYLE_CONFIG = {
     "page_layout_cols": [1, 5, 1],  # Ratios pour marge_gauche, contenu_principal, marge_droite
@@ -70,7 +75,9 @@ def display_formatted_summary_v5(text_with_guillemets):
     st.markdown(final_html, unsafe_allow_html=True)
 
 # --- TEXTE DU RÉSUMÉ ---
-summary_text_updated = """Le document fourni pour cet exercice intitulé America First est issu du service de recherche Cross-Asset de la Société Générale, publié le 9 Décembre 2024. Son objectif principal est de fournir une stratégie et des perspectives pour le marché des actions américaines pour l'année 2025, en se focalisant sur le thème de l'America First et les impacts potentiels d'un nouveau gouvernement américain.  
+summary_text_updated = """Pour écrire ce résumé, je me suis aidé de l'IA NotebookLM pour synthétiser le rapport de la Société Générale. Le texte en gris désigne le texte généré par IA, le blanc le mien. Sur Word, en police 12, cette première partie fait environ 40 lignes.
+
+Le document fourni pour cet exercice intitulé America First est issu du service de recherche Cross-Asset de la Société Générale, publié le 9 Décembre 2024. Son objectif principal est de fournir une stratégie et des perspectives pour le marché des actions américaines pour l'année 2025, en se focalisant sur le thème de l'America First et les impacts potentiels d'un nouveau gouvernement américain.  
 
 Le rapport se concentre d’abord sur les perspectives du S&P500. «  Des rendements concentrés en début d'année 2025 sont prévus, avec un objectif de 6 750 points pour la fin 2025, soutenu par une croissance attendue du bénéfice par action » de +11%. «  La sensibilité de l'indice aux rendements des bons du Trésor américain »  (prévus entre 3,75% et 4,75%) « pourrait le faire osciller entre 6 500 et 7 500. » « Un scénario très optimiste pourrait le porter à 8 000, tandis qu'une guerre commerciale intense pourrait le faire chuter à 5 000, pour un rendement annuel espéré d'environ 11% . »
 
@@ -135,6 +142,7 @@ def main():
     margin_left, main_content_col, margin_right = st.columns(page_cols_ratios)
 
     with main_content_col: 
+        # Rétablissement du titre personnalisé par l'utilisateur
         styled_title("Case Study Félix Barloy, pour Ismael Miled", title_key=1)
 
         # --- PARTIE 1 ---
