@@ -3,9 +3,6 @@ import re
 import os
 import glob
 
-# Changement du répertoire de travail (spécifique à l'environnement de l'utilisateur)
-os.chdir(r"D:\Téléchargements\Privé_ Exercices pour l'entretien du Stage Assistant Gestion Multi Asset")
-
 # --- CONFIGURATION DES STYLES ---
 STYLE_CONFIG = {
     "page_layout_cols": [1, 5, 1],  # Ratios pour marge_gauche, contenu_principal, marge_droite
@@ -16,10 +13,10 @@ STYLE_CONFIG = {
         "prediction_box_title": {"text-align": "center", "text-decoration": "underline", "margin-bottom": "10px", "color": "white", "font-size": "1.1em"},
     },
     "text": {
-        "body_justify": {"text-align": "justify", "margin-bottom": "1em", "line-height": "1.6"}, # Modifié pour alignement justifié
+        "body_justify": {"text-align": "justify", "margin-bottom": "1em", "line-height": "1.6"}, 
         "ia_span_color": "darkgrey",
-        "prediction_box_content": {"text-align": "justify", "color": "#CCC", "flex-grow": "1", "line-height": "1.6"}, # Modifié pour alignement justifié
-        "list_justify": {"text-align": "justify", "list-style-position": "outside", "padding-left": "20px", "margin-bottom": "1em", "line-height": "1.6"}, # Modifié pour alignement justifié
+        "prediction_box_content": {"text-align": "justify", "color": "#CCC", "flex-grow": "1", "line-height": "1.6"}, 
+        "list_justify": {"text-align": "justify", "list-style-position": "outside", "padding-left": "20px", "margin-bottom": "1em", "line-height": "1.6"}, 
     },
     "images": {
         "gallery_cols_count": 3,
@@ -43,7 +40,6 @@ def build_style_string(style_dict):
 # --- FONCTION POUR AFFICHER LE RÉSUMÉ FORMATÉ ---
 def display_formatted_summary_v5(text_with_guillemets):
     color_ia_text = STYLE_CONFIG["text"]["ia_span_color"]
-    # Utilisation du style aligné justifié pour le corps du résumé
     p_style = build_style_string(STYLE_CONFIG["text"]["body_justify"]) 
     
     paragraphs_raw = re.split(r'\n\s*\n', text_with_guillemets.strip())
@@ -132,6 +128,9 @@ def styled_list(list_block_text, style_key):
 def main():
     st.set_page_config(layout="wide", page_title="Analyse de Document et Données")
 
+    # La ligne os.chdir a été supprimée pour la portabilité et le déploiement.
+    # Les chemins vers les fichiers (images, dossier rapport) doivent être relatifs au script.
+
     page_cols_ratios = STYLE_CONFIG["page_layout_cols"]
     margin_left, main_content_col, margin_right = st.columns(page_cols_ratios)
 
@@ -148,10 +147,15 @@ def main():
         
         image_path_part1 = "pic.png" 
         image_caption_part1 = "Consensus 2025 sector EPS growth expectations and contribution (page 14)"
-        st.image(image_path_part1, caption=image_caption_part1, use_container_width=True)
+        # S'assurer que l'image est dans le même dossier que le script, ou dans un sous-dossier accessible via chemin relatif
+        if os.path.exists(image_path_part1):
+            st.image(image_path_part1, caption=image_caption_part1, use_container_width=True)
+        else:
+            st.warning(f"Image '{image_path_part1}' non trouvée. Assurez-vous qu'elle est dans le bon répertoire.")
+
 
         description_graphique = """Selon les prévisions de graphique pour 2025, la croissance des EPS sera largement portée par le secteur technologique, avec une progression attendue de 21,3 %, suivi de la santé (20,2%) et des matériaux (18,7%). À l’inverse, des secteurs comme l’énergie (4,0 %) ou les biens de consommation de base (5,4%) affichent des perspectives de croissance nettement plus faibles. Je trouve que ce graphique résume bien les conclusions du rapport : il montre clairement la prépondérance de la tech dans les perspectives de croissance, mais aussi les opportunités grandissantes (notamment pour le stock-picking ou l’investissement thématique) dans les autres secteurs."""
-        styled_text(description_graphique, style_key="body_justify") # Modifié pour alignement justifié
+        styled_text(description_graphique, style_key="body_justify") 
 
         styled_title("3. Analyse des prédictions (5 mois après)", title_key=3)
         
@@ -188,10 +192,10 @@ Le n°11, Returns vs Volatility, me semble crucial pour distinguer les différen
 Les n°13 et 19 permettent de cerner les pays et industries clés de l'année à venir selon les analystes.
 
 La plupart des Top 20 me permettent simplement de souligner les éléments clés dans chaque catégorie, et me donnent une première idée des valeurs que je pourrais introduire à mon portefeuille en partie 3. Ces graphiques ne sont pas indispensables, mais j'ai décidé de les inclure pour montrer mon cheminement de pensée."""
-        styled_text(intro_text_part2_raw, style_key="body_justify") # Modifié pour alignement justifié
+        styled_text(intro_text_part2_raw, style_key="body_justify") 
         st.markdown("---") 
 
-        base_rapport_folder = "rapport" 
+        base_rapport_folder = "rapport" # Ce dossier doit être au même niveau que le script
         subfolders = ["Descriptive", "Potentiel", "Risque", "Valo"]
 
         for folder_name in subfolders:
@@ -199,7 +203,7 @@ La plupart des Top 20 me permettent simplement de souligner les éléments clés
             folder_path = os.path.join(base_rapport_folder, folder_name)
             with st.expander(expander_title):
                 if not os.path.isdir(folder_path): 
-                    st.info(f"Dossier '{folder_name}' non trouvé.")
+                    st.info(f"Dossier '{folder_name}' non trouvé dans '{base_rapport_folder}'.")
                     continue
                 image_files = sorted(glob.glob(os.path.join(folder_path, "*.png")))
                 if not image_files:
@@ -211,7 +215,11 @@ La plupart des Top 20 me permettent simplement de souligner les éléments clés
                         col_idx_gallery = i % num_cols_gallery
                         with gallery_cols[col_idx_gallery]:
                             img_filename_gallery = os.path.basename(img_file_gallery)
-                            st.image(img_file_gallery, caption=f"{img_filename_gallery[:30]}...", use_container_width=True) 
+                            if os.path.exists(img_file_gallery):
+                                st.image(img_file_gallery, caption=f"{img_filename_gallery[:30]}...", use_container_width=True) 
+                            else:
+                                st.warning(f"Image '{img_filename_gallery}' non trouvée.")
+
 
         # --- PARTIE 3 ---
         styled_title("Partie 3 : Optimisation de Portefeuille", title_key=2) 
@@ -234,16 +242,20 @@ Les résultats sont visibles sur l'image ci-dessous:"""
         for paragraph_p3 in intro_paragraphs_part3:
             current_paragraph_stripped = paragraph_p3.strip()
             if current_paragraph_stripped.startswith("- "):
-                styled_list(current_paragraph_stripped, style_key="list_justify") # Modifié pour alignement justifié
+                styled_list(current_paragraph_stripped, style_key="list_justify") 
             else: 
-                styled_text(paragraph_p3, style_key="body_justify") # Modifié pour alignement justifié
+                styled_text(paragraph_p3, style_key="body_justify") 
 
         image_path_part3 = "results.png"
         image_caption_part3 = "Résultat de l'optimisation de portefeuille"
-        st.image(image_path_part3, caption=image_caption_part3, use_container_width=True)
+        if os.path.exists(image_path_part3):
+            st.image(image_path_part3, caption=image_caption_part3, use_container_width=True)
+        else:
+            st.warning(f"Image '{image_path_part3}' non trouvée.")
+
 
         conclusion_part3_raw = """Les 11 secteurs sont bien représentés dans le portefeuille final, avec une pondération de minimum 2% et de maximum 25% par secteur. Aucun titre ne dépasse 8%. Le rendement attendu du portefeuille est de 28%, je présume que les prédictions sont faites sur un an. La volatilité, elle, est de 26.8%."""
-        styled_text(conclusion_part3_raw, style_key="body_justify") # Modifié pour alignement justifié
+        styled_text(conclusion_part3_raw, style_key="body_justify")
 
 if __name__ == "__main__":
     main()
