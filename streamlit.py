@@ -234,7 +234,7 @@ La plupart des Top 20 me permettent simplement de souligner les éléments clés
 
         intro_text_part3_raw = """Pour cette troisième partie, j'ai décidé d'écarter les colonnes qui ont des valeurs manquantes de mon modèle. J'ai également concentré mon attention sur les valeurs européennes, puisqu'il n'y  a que très peu d'actions chinoises et américaines. C'est un parti pris de renoncer à la diversification géographique au profit d'un portefeuille européen. En suivant les contraintes données, je suis alors parti sur un portefeuille qui maximise le rendement revenu aux risques.
 
-Le critère a maximiser est un ratio que j'ai crée:
+Le critère à maximiser est un ratio que j'ai crée:
 
 - 60% des performances sont basés sur le forecast (Upside/12-Month Put Implied Volatility)
 - 40% sont basés sur l'historique (1-Year Total Return/Volatility 360 Day)
