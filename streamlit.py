@@ -264,7 +264,7 @@ Les résultats sont visibles sur l'image ci-dessous:"""
 
         conclusion_part3_raw = """Les 11 secteurs sont bien représentés dans le portefeuille final, avec une pondération de minimum 2% et de maximum 25% par secteur. Aucun titre ne dépasse 8%. Le rendement attendu du portefeuille est de 28%, je présume que les prédictions sont faites sur un an. La volatilité, elle, est de 26.8%.
         
-        Merci. Temps de travail estimé : 10 heures"""
+        Merci. Temps de travail estimé : 9 heures"""
         styled_text(conclusion_part3_raw, style_key="body_justify")
 
 if __name__ == "__main__":
