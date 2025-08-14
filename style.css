@@ -1,0 +1,107 @@
+/* General Body Styles */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #F0F0F0;
+    background-color: #000000;
+}
+
+/* Headings */
+h1, h2, h3 {
+    text-align: center;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 2.6em;
+    margin-top: 20px;
+    border-bottom: 1px solid #D4AF37;
+    padding-bottom: 10px;
+}
+
+h2 {
+    font-size: 2.0em;
+    margin-top: 40px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 30px;
+    color: #D4AF37; /* Gold accent for subtitles */
+}
+
+/* Text Styles */
+p, li {
+    text-align: justify;
+    line-height: 1.7;
+    font-weight: 300;
+}
+
+ul {
+    list-style-position: outside;
+    padding-left: 20px;
+    margin-bottom: 1em;
+}
+
+/* Prediction Box */
+.prediction-box {
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 15px;
+    background-color: #111111;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.prediction-box-title {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #D4AF37;
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+.prediction-box-content {
+    text-align: justify;
+    color: #CCCCCC;
+    flex-grow: 1;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+/* IA Text Span */
+.ia-text {
+    color: #888888;
+    font-style: italic;
+}
+
+/* Streamlit specific overrides */
+.stApp > header {
+    background-color: transparent;
+}
+
+.stTabs [data-baseweb="tab-list"] {
+	gap: 24px;
+}
+
+.stTabs [data-baseweb="tab"] {
+	height: 50px;
+    white-space: pre-wrap;
+	background-color: #111;
+	border-radius: 4px 4px 0px 0px;
+	gap: 1px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.stTabs [aria-selected="true"] {
+	background-color: #D4AF37;
+    color: #000000;
+    font-weight: 700;
+}
