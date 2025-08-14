@@ -5,9 +5,7 @@ from pypfopt.exceptions import OptimizationError # Gardé au cas où, mais pas d
 import cvxpy as cp # Gardé pour la compatibilité si ECOS est appelé via cp.ECOS
 
 # 1. Chargement et Préparation des Données
-# --- MODIFIEZ CETTE LIGNE AVEC LE CHEMIN DE VOTRE FICHIER CSV ---
-csv_file_path = r"D:\Téléchargements\Privé_ Exercices pour l'entretien du Stage Assistant Gestion Multi Asset\data.csv"
-# --- AJUSTEZ AUSSI sep (séparateur) ET decimal SI BESOIN ---
+csv_file_path = "data.csv"
 
 # Le bloc try...except pour le chargement du fichier est supprimé
 df = pd.read_csv(csv_file_path, sep=';', decimal='.') 
@@ -151,7 +149,7 @@ if not portfolio_df.empty:
     print(f"Volatilité Mixte Pondérée du Portefeuille (Reporting): {ptf_volatilite_mixte_reporting_ponderee:.2f}%")
     print(f"Volatilité Annuelle du Portefeuille (calculée par l'optimiseur via S): {ptf_vol_percentage_S_based:.2f}%")
 
-    csv_filename_output = r"D:\Téléchargements\Privé_ Exercices pour l'entretien du Stage Assistant Gestion Multi Asset\portfolio_composition_final.csv"
+    csv_filename_output = "portfolio_composition_final.csv"
     portfolio_df.to_csv(csv_filename_output, sep=';', index=False, float_format='%.4f')
     
     with open(csv_filename_output, 'a', newline='', encoding='utf-8') as f:
