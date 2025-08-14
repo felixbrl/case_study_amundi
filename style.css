@@ -1,81 +1,107 @@
 /* General Body Styles */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
 body {
-    font-family: 'Helvetica Neue', sans-serif;
-    color: #FAFAFA;
-    background-color: #0E1117;
+    font-family: 'Lato', sans-serif;
+    color: #F0F0F0;
+    background-color: #000000;
 }
 
 /* Headings */
-h1 {
+h1, h2, h3 {
     text-align: center;
-    text-decoration: underline;
-    font-size: 2.4em;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 2.6em;
     margin-top: 20px;
-    margin-bottom: 30px;
-    color: #FF4B4B;
+    border-bottom: 1px solid #D4AF37;
+    padding-bottom: 10px;
 }
 
 h2 {
-    text-align: center;
-    text-decoration: underline;
-    font-size: 1.7em;
+    font-size: 2.0em;
     margin-top: 40px;
-    margin-bottom: 25px;
-    color: #4BFFC3;
 }
 
 h3 {
-    text-align: center;
-    text-decoration: underline;
-    font-size: 1.2em;
+    font-size: 1.5em;
     margin-top: 30px;
-    margin-bottom: 20px;
-    color: #A64BFF;
+    color: #D4AF37; /* Gold accent for subtitles */
 }
 
 /* Text Styles */
-p {
+p, li {
     text-align: justify;
-    margin-bottom: 1em;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 300;
 }
 
 ul {
-    text-align: justify;
     list-style-position: outside;
     padding-left: 20px;
     margin-bottom: 1em;
-    line-height: 1.6;
 }
 
 /* Prediction Box */
 .prediction-box {
-    border: 1px solid #444;
-    border-radius: 5px;
-    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
     margin-bottom: 15px;
-    background-color: #1E1E1E;
+    background-color: #111111;
     height: 100%;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
 .prediction-box-title {
     text-align: center;
-    text-decoration: underline;
-    margin-bottom: 10px;
-    color: white;
-    font-size: 1.1em;
+    margin-bottom: 15px;
+    color: #D4AF37;
+    font-size: 1.3em;
+    font-weight: 700;
 }
 
 .prediction-box-content {
     text-align: justify;
-    color: #CCC;
+    color: #CCCCCC;
     flex-grow: 1;
     line-height: 1.6;
+    font-weight: 300;
 }
 
 /* IA Text Span */
 .ia-text {
-    color: darkgrey;
+    color: #888888;
+    font-style: italic;
+}
+
+/* Streamlit specific overrides */
+.stApp > header {
+    background-color: transparent;
+}
+
+.stTabs [data-baseweb="tab-list"] {
+	gap: 24px;
+}
+
+.stTabs [data-baseweb="tab"] {
+	height: 50px;
+    white-space: pre-wrap;
+	background-color: #111;
+	border-radius: 4px 4px 0px 0px;
+	gap: 1px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.stTabs [aria-selected="true"] {
+	background-color: #D4AF37;
+    color: #000000;
+    font-weight: 700;
 }
